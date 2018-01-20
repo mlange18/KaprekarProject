@@ -29,16 +29,16 @@ int isKaprekar(int n) {
   }
 
   int i;
-  long square = n * (long) n;
-  int numDigits = (int) log10(n) + 1;
-  long modulus = 0;
+  long square = (long) pow(n,2); //in order to raise something to a power, use pow() function
+  int numDigits = (int) log10(square) + 1; //change n to square 
+  long modulus = 1; //can't be zero because then you'd divide by zero
   long first, second;
-  for(i=1; i<=numberOfDigits; i++) {
+  for(i=1; i<=numDigits; i++) {
     modulus *= 10; //modulus was spelled "modulous"
     first = square / modulus;
     second = square % modulus;
-    if(second > 0 &&
-       first + second == n) {
+    if(first >= 0 &&    //change first to second, change > to >=,and include second > 0 since you don't want negative values 
+       first + second == n && second > 0) {
       return 1;
     }
   }
