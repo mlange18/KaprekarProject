@@ -1,4 +1,4 @@
-#include<math.h>
+#include <math.h> //included a space between #include and <math.h>
 
 #include "kaprekarUtils.h"
 
@@ -25,7 +25,7 @@
 int isKaprekar(int n) {
 
   if(n < 1) {
-    return false;
+    return 0; //can't be false, no boolean operators in c
   }
 
   int i;
@@ -34,7 +34,7 @@ int isKaprekar(int n) {
   long modulus = 0;
   long first, second;
   for(i=1; i<=numberOfDigits; i++) {
-    modulous *= 10;
+    modulus *= 10; //modulus was spelled "modulous"
     first = square / modulus;
     second = square % modulus;
     if(second > 0 &&
